@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Highlighting current link in menu</title>
+<script language="javascript" src="highlight.js"></script>
+<link href="sample.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="nav">
+<ul>
+  <li><a href="mainpage.html">Main page </a></li>
+  <li><a href="page2.html">Dummy page 2</a></li>
+  <li><a href="page3.html">Dummy page 3</a></li>
+  <li><a href="page4.html">Dummy page 4</a></li>
+</ul>
+<script language="javascript">setPage()</script>
+</div>
+<div id="page">
+  <h1>Highlighting current link in menu</h1>
+  <p>Whenever one builds website, one issue always is always guaranteed to be time consuming: highlighting the current page or section in the website with a different style.</p>
+<p>In theory, this is relatively simple, just add a <code>.current</code> class to the link in question.</p>
+<p>So, if you have a menu styled from a list, you'd have:</p>
+<pre>&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;.current&quot;&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Link 3&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Link 4&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+<p>The limitation of this method becomes obvious if you have a site with any more than 5-7 pages; each page needs to have its own menu, which makes updates difficult, especially if you prefer to keep the menu in a template.</p>
+<p>I've seen several solutions to this problem, but I didn't really like any of them. </p>
+<h4>A pure CSS solution </h4>
+<p>One possibility, used by <a href="www.alistapart.com" target="_blank">A List Apart</a> would by to assign an <code>id</code> to each link, so that the links above become: </p>
+<pre>&lt;ul&gt;
+  &lt;li&gt;&lt;a id=&quot;link1&quot; href=&quot;#&quot;&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a id=&quot;link2&quot; href=&quot;#&quot; class=&quot;.current&quot;&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a id=&quot;link3&quot; href=&quot;#&quot;&gt;Link 3&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a id=&quot;link4&quot; href=&quot;#&quot;&gt;Link 4&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+<p>Then, you'd have to set the <code>class</code> property for each <code>&lt;body&gt;</code> tag, i.e. <code>&lt;body class=&quot;link1&quot;&gt;</code>. In the stylesheet definition, you'd write</p>
+<pre>.link1 a#link1,
+.link2 a#link2
+{
+   background-color: #EEEEEE;
+
+}
+</pre>
+<p>If you're relatively new to CSS, the above definition means that any link with <code>id</code> set to <code>link1</code> that is a descendent of a tag (<code>&lt;body&gt;</code>) with the class <code>.link1</code> will be &quot;highlighted&quot;.</p>
+<p>This method is an improvement in that the menu can can be written only once; however, you still have to set the <code>class</code> for the <code>body</code> tag in each page.</p>
+<h4>Generating HTML</h4>
+<p>Another solution would be to use PHP/ASPX or any other server language to  generate the pages and menu items. Of course, this provides complete freedom, since you can generate the html code any way you like. Still, this method can't be used in all circumstances. Not all sites require a server technology and making a site dynamic just for this feature would be overkill.</p>
+<h4>Javascript + CSS</h4>
+<p>I'm a little surprised that I haven't seen a similar solution published anywhere, so I've thought about sharing it.</p>
+<p>The concept is very simple: The javascript code gets the current URL. It then cycles to all links that are contained in the navigation bar (any tag with <code>id=&quot;navbar&quot;</code>). If the link points to the same page (i.e. &quot;<code>link1.html&quot;</code>), the code applies a class to the link.</p>
+<p>The code is designed to work in IE6, Firefox &amp; Opera. You may add compatibility for older versions of IE by using <code>document.all</code> instead of <code>document.getElementById()</code> </p>
+<p>Here's the code:</p>
+<pre>
+// extract the file name from a URL 
+//(&quot;if input is /files/index.html&quot;, output is &quot;index&quot;)
+function extractPageName(hrefString)
+{
+  var arr = hrefString.split('.');
+  arr = arr[arr.length-2].split('/');
+  return arr[arr.length-1].toLowerCase();		
+}
+
+// search through all the links in array, if one points to
+// the same file, apply the class .current to it and to its parent
+function setActiveMenu(arr, crtPage)
+{
+  for(var i=0; i &lt; arr.length; i++)
+  if(extractPageName(arr[i].href) == crtPage)
+  {
+    arr[i].className = &quot;current&quot;;
+    arr[i].parentNode.className = &quot;current&quot;;
+  }
+}
+
+// call this method from your page
+function setPage()
+{
+  if(document.location.href) 
+    hrefString = document.location.href;
+  else
+    hrefString = document.location;
+
+	if (document.getElementById(&quot;navbar&quot;)!=null)
+	  setActiveMenu(document.getElementById(&quot;navbar&quot;).getElementsByTagName(&quot;a&quot;), extractPageName(hrefString));
+}
+</pre>
+</div>
+</body>
+</html>

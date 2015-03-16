@@ -1,0 +1,319 @@
+body {
+	text-align: center;
+} 
+
+/* removing the border around an image in IE */
+a img {
+	border: none;
+}	
+
+/******************** 
+* Header Starts 
+*********************/
+div#container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 975px;
+	text-align: left;
+}
+.innertopborder {
+	width: 892px;
+	margin-left: auto;
+	margin-right: auto;	
+}
+div#petition {
+	height: 60px;
+	padding-top: 35px;
+	width: 371px;
+	/*background-color: #CCC;
+	float: right;*/
+	text-align: right;
+	margin-left: inherit;
+	padding-right: 40px;
+}
+div#petition a:link {
+    color: #FFFFFF;
+}
+div#petition a:visited {
+    color: #FFFFFF;
+}
+div#petition a:hover {
+    color: #FFFFFF;
+}
+.topnavpos {
+	padding-right: 40px;
+	height: 35px;
+	width: 375px;
+	background-image: url("../images/navigation_border.png");
+	background-repeat: no-repeat;
+	background-position: bottom;
+	text-align: center;
+	margin-left: auto;
+	
+}
+.topborder {
+	background-color: transparent;
+	background-image: url("../images/border_top.png");
+	background-repeat: no-repeat;
+	/*background-attachment: fixed;*/
+	background-position: center bottom;
+	height: 155px;
+}
+div#logopos {
+	padding-top: 93px;
+	padding-left: 44px;
+	float: left;
+}
+div#logopos a:link {
+    color: #FFFFFF;
+}
+div#logopos a:visited {
+    color: #FFFFFF;
+}
+div#logopos a:hover {
+    color: #FFFFFF;
+}
+
+div#toplinks {
+	/*width: 100%;
+	margin-top: 25px;*/
+	text-align: center;
+	padding-top: 3px;
+	width: 420px;
+}
+div#toplinks ul {
+	margin: 0px;
+	padding: 0px;
+	font-family: "Lucida Grande",tahoma,verdana,arial,sans-serif;
+	font-size: 20px;
+	/*color: #f38f21;*/
+	font-weight: bold;
+	white-space: nowrap;
+	text-align: center;
+}
+div#toplinks li {
+	list-style-type: none;
+	/*display: inline-table;*/
+	display: inline-block;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+	/* displaying correctly inline in IE */
+* html #toplinks li {
+	display: inline;
+}
+div#toplinks li a {
+	color: #f38f21;
+	text-decoration: none;
+}
+div#toplinks li a:link {
+	color: #f38f21;
+}
+div#toplinks li a:visited {
+	color: #f38f21;
+}
+div #toplinks li a:hover {
+	color: #056FB8;
+}
+div#toplinks li a:active {
+	color: #f38f21;
+}
+
+.middleborder {
+	background-color: transparent;
+	background-image: url("../images/border_middle.png");
+	background-repeat: repeat-y;
+	background-position: center top;
+	text-align: center;
+	font-family: "Lucida Grande",tahoma,verdana,arial,sans-serif;
+}
+.headerimgpos {
+        text-align: left;
+}
+
+/******************** 
+* Middle Body Starts 
+*********************/
+.mainbodycontainer {
+	width: 810px;
+	margin-left: auto;
+	margin-right: auto;	
+	text-align: left;
+}
+.dotteddashes {
+	background-color: transparent;
+	background-image: url("../images/dashes.png");
+	background-repeat: repeat-x;
+	background-position: center;
+	width: 810px;
+	margin-bottom: 24px;
+	margin-top: 24px;
+}
+
+.headingstyle {
+	/*font-family: "Lucida Grande",tahoma,verdana,arial,sans-serif;*/
+	font-size: 20px;
+	color: #f38f21;
+	font-weight: bold;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.bodystyle {
+	/*font-family: "Lucida Grande",tahoma,verdana,arial,sans-serif;*/
+	font-size: 15px;
+	line-height: 22px;
+}
+.bodystyle li {
+	padding-top: 13px;
+}
+.bodystyle a, .bodystyle a:link, .bodystyle a:visited, .bodystyle a:hover, .bodystyle a:active {
+	color: #056fb8;
+}
+
+/******************** 
+* Home Page Starts 
+*********************/
+.carousel {
+	background-color: transparent;
+	background-image: url("../images/carouselbg.png");
+	background-repeat: no-repeat;
+	width: 495px;
+	margin-left: 40px;
+	margin-bottom: 50px;
+	/*background-color: #CCCCCC;*/
+	height: 312px;
+	float: left;
+}
+.homemsg {
+	width: 280px;
+	/*background-color: #E52;*/
+	float: right;
+	margin-right: 40px;
+	color: #056fb8;
+	/*font-family: "Lucida Grande",tahoma,verdana,arial,sans-serif;*/
+	line-height: 22px;
+	text-align: left;
+}
+.howitworks {
+	text-align: center;
+	margin-bottom: 35px;
+}
+
+.benefitsbox {
+	width: 975px;
+	margin-right: auto;
+	margin-left: auto;	
+}
+
+
+/******************** 
+* Footer Starts 
+*********************/
+.bottomborder {
+	background-color: transparent;
+	background-image: url("../images/border_bottom.png");
+	background-repeat: no-repeat;
+	background-position: center top;
+	/*height: 82px;*/
+	height: 93px;
+	padding-top: 3px;
+	margin-bottom: 10px;
+}
+
+div#footerlinks {
+	width: 100%;
+	margin-top: 25px;
+	text-align: center;
+}
+div#footerlinks ul {
+	margin: 0px;
+	padding-top: 25px;
+	padding-bottom: 0px;
+	padding-right: 0px;
+	padding-left: 0px;
+	font-size: 11px;
+	white-space: nowrap;
+	text-align: center;
+	font-weight: bold;
+}
+div#footerlinks li {
+	list-style-type: none;
+	/*display: inline-table;*/
+	display: inline-block;
+	vertical-align: top;
+}
+	/* displaying social block inline in IE */
+* html #footerlinks li {
+	display: inline;
+}
+div#footerlinks li a {
+	text-decoration: none;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	padding-right: 15px;
+	padding-left: 15px;
+	color: #FFFFFF;
+}
+div#footerlinks li a:link {
+    color: #000000;
+}
+div#footerlinks li a:visited {
+    color: #000000;
+}
+div#footerlinks li a:hover {
+    color: #ECA239;
+}
+div#footerlinks li a:active {
+	color: #ECA239;
+}
+
+div#socialblock ul {
+	margin: 0px;
+	padding-top: 80px;
+	padding-bottom: 0px;
+	padding-right: 0px;
+	padding-left: 0px;
+	font-family: Helvetica;
+	font-size: 15px;
+	color: #ECA239;
+	white-space: nowrap;
+	text-align: center;
+	font-style: oblique;
+	font-weight: bold;
+}
+div#socialblock li {
+	list-style-type: none;
+	/*display: inline-table;*/
+	display: inline-block;
+	vertical-align: top;
+}
+	/* displaying social block inline in IE */
+* html #socialblock li {
+	display: inline;
+}
+div#socialblock li a {
+	text-decoration: none;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	padding-right: 15px;
+	padding-left: 15px;
+	color: #FFFFFF;
+}
+div#socialblock li a:link {
+    color: #FFFFFF;
+}
+div#socialblock li a:visited {
+    color: #FFFFFF;
+}
+div#socialblock li a:hover {
+    color: #FFFFFF;
+}
+.copyright {
+	margin-left: auto;
+	margin-right: auto;
+	font-family: "Lucida Grande",tahoma,verdana,arial,sans-serif;
+	font-size: 12px;
+	color: #000000;
+	padding-top: 20px;
+	text-align: center;
+}
